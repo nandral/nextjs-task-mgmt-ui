@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   Form,
@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/router";
 import { login } from "../api";
 import Context from "../store/Context";
+import Layout from "../components/Layout";
 
 const Login = ({ signup }) => {
   const [username, setUsername] = useState("");
@@ -19,6 +20,15 @@ const Login = ({ signup }) => {
   const [error, setError] = useState("");
   const router = useRouter();
   const store = Context.useContainer();
+
+  useEffect(() => {
+    if (store.token) {
+      localStorage.setItem("token", store.token);
+    } else {
+      const tokenReHydrated = localStorage.getItem("token");
+      store.saveToken(tokenReHydrated);
+    }
+  }, [store]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -39,59 +49,61 @@ const Login = ({ signup }) => {
 
   return (
     <Context.Provider>
-      <Grid
-        textAlign="center"
-        style={{ height: "80vh" }}
-        verticalAlign="middle"
-      >
-        <Grid.Column style={{ maxWidth: 450 }}>
-          {signup && (
-            <Header as="h3" color="green" textAlign="center">
-              Signup is successful. Please Login
+      <Layout token={!!store.token}>
+        <Grid
+          textAlign="center"
+          style={{ height: "80vh" }}
+          verticalAlign="middle"
+        >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            {signup && (
+              <Header as="h3" color="green" textAlign="center">
+                Signup is successful. Please Login
+              </Header>
+            )}
+
+            <Header as="h2" color="teal" textAlign="center">
+              Login to your account
             </Header>
-          )}
+            <Form size="large" onSubmit={handleLogin}>
+              <Segment stacked>
+                <Form.Input
+                  fluid
+                  icon="user"
+                  iconPosition="left"
+                  placeholder="Username"
+                  required
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                />
+                <Form.Input
+                  fluid
+                  icon="lock"
+                  iconPosition="left"
+                  placeholder="Password"
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
 
-          <Header as="h2" color="teal" textAlign="center">
-            Login to your account
-          </Header>
-          <Form size="large" onSubmit={handleLogin}>
-            <Segment stacked>
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="Username"
-                required
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
-              <Form.Input
-                fluid
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+                <Button color="teal" fluid size="large" loading={loading}>
+                  Login
+                </Button>
+              </Segment>
+            </Form>
+            {error && <Message error header={error} />}
 
-              <Button color="teal" fluid size="large" loading={loading}>
-                Login
-              </Button>
-            </Segment>
-          </Form>
-          {error && <Message error header={error} />}
-
-          <Message>
-            New to us? &nbsp;&nbsp;<a href="/signup">Sign up</a>
-          </Message>
-        </Grid.Column>
-      </Grid>
+            <Message>
+              New to us? &nbsp;&nbsp;<a href="/signup">Sign up</a>
+            </Message>
+          </Grid.Column>
+        </Grid>
+      </Layout>
     </Context.Provider>
   );
 };

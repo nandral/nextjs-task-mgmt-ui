@@ -1,5 +1,12 @@
 import React, { Fragment } from "react";
-import { Button, Container, Header, Menu, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Header,
+  Menu,
+  Segment,
+  Responsive,
+} from "semantic-ui-react";
 import Context from "../store/Context";
 
 const Layout = ({ children, token }) => {
@@ -8,11 +15,16 @@ const Layout = ({ children, token }) => {
   return (
     <Context.Provider>
       <Fragment>
-        <Segment inverted textAlign="center" vertical>
+        <Segment textAlign="center" vertical>
           <Menu fixed="top" inverted size="large">
             <Container>
-              <Menu.Item as="a" header href="/">
-                <Header as="h2" content="Task Management" inverted />
+              <Menu.Item as="a" href="/">
+                <Responsive maxWidth={767} as={Header}>
+                  <Header as="h3" content="Task Management" inverted />
+                </Responsive>
+                <Responsive minWidth={768} as={Header}>
+                  <Header as="h2" content="Task Management" inverted />
+                </Responsive>
               </Menu.Item>
 
               <Menu.Item position="right">
