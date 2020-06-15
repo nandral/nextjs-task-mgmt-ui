@@ -27,6 +27,7 @@ Task management allows users to register, create tasks and manage them, major fe
 - React v16+, using Hooks like useState, useEffect along with Stateful Functional Components
 - NextJS v9+ for server-rendering, automatic code splitting, React Fast Refresh
 - [Unstated](https://github.com/jamiebuilds/unstated) for Simple state management
+- Semantic UI React framework for theming, styling & prebuilt responsive React components
 
 ## Running locally
 
