@@ -24,16 +24,15 @@ export default function Home() {
   const store = Context.useContainer();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log(tasks);
+
   useEffect(() => {
     if (store.token) {
       localStorage.setItem("token", store.token);
     } else {
       const tokenReHydrated = localStorage.getItem("token");
-      // console.log("tokenReHydrated ", tokenReHydrated);
       store.saveToken(tokenReHydrated);
     }
-    // console.log(store.token);
+
     if (store.token) {
       fetchTasks(store.token);
     }

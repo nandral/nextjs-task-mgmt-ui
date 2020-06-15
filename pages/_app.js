@@ -1,6 +1,5 @@
 import App from "next/app";
 import Head from "next/head";
-import Layout from "../components/Layout";
 import Context from "../store/Context";
 
 function MyApp({ Component, pageProps }) {
@@ -16,9 +15,7 @@ function MyApp({ Component, pageProps }) {
           />
         </Head>
         <div>
-          {/* <Layout> */}
           <Component {...pageProps} />
-          {/* </Layout> */}
         </div>
       </div>
     </Context.Provider>

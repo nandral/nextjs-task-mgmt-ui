@@ -97,7 +97,6 @@ const Login = ({ signup }) => {
 };
 
 Login.getInitialProps = (ctx) => {
-  console.log("getInital : ", ctx.pathname, ctx.query);
   return {
     signup: ctx.query.signup,
   };

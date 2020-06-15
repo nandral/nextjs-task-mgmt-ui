@@ -1,30 +1,37 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Description
 
-First, run the development server:
+Task management UI built using React, NextJS, semantic-ui-react, unstated.
+
+This repo is the frontend for Task Management API available on repo https://github.com/nandral/nestjs-typeorm-task-mgmt
+
+## About Task Management
+
+### Sample deployment
+
+Code has been deployed to Vercel and is available for testing https://nextjs-task-mgmt.vercel.app/
+
+### Functional specs
+
+Task management allows users to register, create tasks and manage them, major features are
+
+- User SignUp & SignIn
+- Create Tasks which are visible only to the logged in users
+- New created tasks will be in OPEN status
+- Update task status to IN_PROGRESS or DONE
+- Delete tasks
+
+### Technical methodologies followed
+
+- React v16+, using Hooks like useState, useEffect along with Stateful Functional Components
+- NextJS v9+ for server-rendering, automatic code splitting, React Fast Refresh
+- [Unstated](https://github.com/jamiebuilds/unstated) for Simple state management
+
+## Running locally
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Open [http://localhost:5000](http://localhost:5000) with your browser to see the result.

@@ -1,26 +1,10 @@
-import {
-  Card,
-  Container,
-  Select,
-  Segment,
-  Grid,
-  Label,
-  Dimmer,
-  Loader,
-  Form,
-  Button,
-  Header,
-  Divider,
-} from "semantic-ui-react";
-
+import React, { useState } from "react";
+import { Container, Form, Button, Header } from "semantic-ui-react";
 import { createTask } from "../api";
-
-import React, { useEffect, useState } from "react";
 
 export default function CreateTask({ token, setLoading }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  //   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleCreateTask = async (e) => {
@@ -29,13 +13,12 @@ export default function CreateTask({ token, setLoading }) {
     const { success } = await createTask({ title, desc, token });
     setLoading(false);
     if (!success) {
-      //   setError(msg);
+      setError("Session Expired");
+      router.push("/login");
     } else {
       setTitle("");
       setDesc("");
       setError("");
-      //   store.saveToken(token);
-      //   router.push("/");
     }
   };
 
