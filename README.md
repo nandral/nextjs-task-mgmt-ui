@@ -21,6 +21,7 @@ Task management allows users to register, create tasks and manage them, major fe
 - New created tasks will be in OPEN status
 - Update task status to IN_PROGRESS or DONE
 - Delete tasks
+- UI is Responsive looks good on mobile, tablet & desktops
 
 ### Technical methodologies followed
 
