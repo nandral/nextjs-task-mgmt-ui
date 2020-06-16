@@ -60,6 +60,7 @@ const Signup = () => {
             <Form size="large" onSubmit={handleSignup}>
               <Segment stacked>
                 <Form.Input
+                  id="username"
                   fluid
                   icon="user"
                   iconPosition="left"
@@ -72,6 +73,7 @@ const Signup = () => {
                 />
                 <Form.Input
                   fluid
+                  id="password"
                   icon="lock"
                   iconPosition="left"
                   placeholder="Password"
@@ -83,7 +85,13 @@ const Signup = () => {
                   }}
                 />
 
-                <Button color="teal" fluid size="large" loading={loading}>
+                <Button
+                  color="teal"
+                  fluid
+                  size="large"
+                  loading={loading}
+                  id="signup-button"
+                >
                   Sign Up
                 </Button>
               </Segment>

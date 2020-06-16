@@ -24,11 +24,12 @@ export default function CreateTask({ token, setLoading }) {
 
   return (
     <Container style={{ paddingBottom: 40 }}>
-      <Header as="h2" content="Create Task" />
+      <Header as="h2" content="Create Task" id="create-task" />
       <Form onSubmit={handleCreateTask}>
         <Form.Field>
           <label>Title</label>
           <input
+            id="title"
             placeholder="title of the task .."
             required
             value={title}
@@ -40,6 +41,7 @@ export default function CreateTask({ token, setLoading }) {
         <Form.Field>
           <label>Description</label>
           <input
+            id="desc"
             placeholder="description of the task .."
             required
             value={desc}
@@ -48,7 +50,7 @@ export default function CreateTask({ token, setLoading }) {
             }}
           />
         </Form.Field>
-        <Button type="submit" size="large" positive>
+        <Button type="submit" size="large" positive id="create-task-submit">
           Submit
         </Button>
         {error && <Message error header={error} />}

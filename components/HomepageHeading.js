@@ -12,6 +12,7 @@ const HomepageHeading = () => (
       <Header
         as="h1"
         content="Task Management"
+        id="header-anonymous-user"
         inverted
         style={{
           fontSize: "3em",
@@ -31,7 +32,7 @@ const HomepageHeading = () => (
           marginBottom: "2em",
         }}
       />
-      <Button primary size="huge" as="a" href="/signup">
+      <Button primary size="huge" as="a" href="/signup" id="get-started">
         Register and Get Started
         <Icon name="right arrow" />
       </Button>

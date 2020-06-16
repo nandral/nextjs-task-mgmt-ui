@@ -39,10 +39,12 @@ export default function Home() {
   }, [store]);
 
   const fetchTasks = async (token) => {
+    setLoading(true);
     const { success, tasks: tasksFromDB, msg } = await getTasks({ token });
     if (success) {
       setTasks(_.orderBy(tasksFromDB, ["id"], ["desc"]));
     }
+    setLoading(false);
   };
 
   const handleUpdateStatus = async ({ id, status, token }) => {

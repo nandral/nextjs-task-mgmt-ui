@@ -37,7 +37,6 @@ export const login = async ({ username, password }) => {
 };
 
 export const getTasks = async ({ token }) => {
-  console.log("API ", token);
   const headers = {
     Authorization: `Bearer ${token}`,
   };

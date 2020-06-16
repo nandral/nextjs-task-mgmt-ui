@@ -30,7 +30,12 @@ const Layout = ({ children, token }) => {
               <Menu.Item position="right">
                 {!token && (
                   <>
-                    <Button as="a" href="/login" primary>
+                    <Button
+                      as="a"
+                      href="/login"
+                      primary
+                      id="login-button-navbar"
+                    >
                       Log in
                     </Button>
                     <Button
@@ -44,8 +49,9 @@ const Layout = ({ children, token }) => {
                 )}
                 {token && (
                   <Button
+                    id="logout-button"
                     as="a"
-                    href="/"
+                    href="/login"
                     primary
                     onClick={() => {
                       localStorage.removeItem("token");
