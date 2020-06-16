@@ -28,11 +28,26 @@ Task management allows users to register, create tasks and manage them, major fe
 - NextJS v9+ for server-rendering, automatic code splitting, React Fast Refresh
 - [Unstated](https://github.com/jamiebuilds/unstated) for Simple state management
 - Semantic UI React framework for theming, styling & prebuilt responsive React components
+- [TestCafe](https://devexpress.github.io/testcafe/) to automate
+  end-to-end web testing
 
-## Running locally
+## Running Dev server
 
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:5000](http://localhost:5000) with your browser to see the result.
+
+## _TestCafe_ end-to-end Tests
+
+TestCafe provides an option of writing cross-browser functional tests in JavaScript. It's like write once and run on different browsers just by changing command.
+
+I have tested this frontend on 3 browsers.
+
+```bash
+npm run test:chrome
+npm run test:safari
+npm run test:firefox
+
+```

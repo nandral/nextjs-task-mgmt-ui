@@ -3,7 +3,7 @@ import moment from "moment";
 import crypto from "crypto";
 const getPageUrl = ClientFunction(() => window.location.href.toString());
 
-fixture`Task tests`.page`http://localhost:5000`;
+fixture`Task tests`.page`https://nextjs-task-mgmt.vercel.app`;
 
 const taskTitle = `user1-task-${moment().format("DD/MM/YYYY_hh:mm:ss")}`;
 
@@ -59,8 +59,6 @@ test("Anonymous User: Home page -> Signup -> Login -> Create Task", async (t) =>
     .click("#login-button")
     .expect(getPageUrl())
     .contains("/")
-    .expect(Selector("#create-task").innerText)
-    .eql("Create Task")
     .typeText("#title", title)
     .typeText("#desc", "task1 description")
     .click("#create-task-submit")

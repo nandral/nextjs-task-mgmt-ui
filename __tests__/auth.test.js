@@ -2,7 +2,7 @@ import { Selector, ClientFunction } from "testcafe"; // first import testcafe se
 
 const getPageUrl = ClientFunction(() => window.location.href.toString());
 
-fixture`Auth tests`.page`http://localhost:5000/login`; // declare the fixture // specify the start page
+fixture`Auth tests`.page`https://nextjs-task-mgmt.vercel.app/login`; // declare the fixture // specify the start page
 
 //then create a test and place your code there
 test("Login - Success", async (t) => {
