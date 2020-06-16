@@ -30,6 +30,9 @@ Task management allows users to register, create tasks and manage them, major fe
 - Semantic UI React framework for theming, styling & prebuilt responsive React components
 - [TestCafe](https://devexpress.github.io/testcafe/) to automate
   end-to-end web testing
+  
+
+
 
 ## Running Dev server
 
