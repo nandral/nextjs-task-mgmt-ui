@@ -11,7 +11,7 @@
     "test:firefox": "testcafe firefox __tests__/*"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "next": "9.4.4",
