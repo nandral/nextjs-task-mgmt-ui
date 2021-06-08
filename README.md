@@ -8,9 +8,6 @@ This repo is the frontend for Task Management API available on repo https://gith
 
 ## About Task Management
 
-### Sample deployment
-
-Code has been deployed to Vercel and is available for testing https://nextjs-task-mgmt.vercel.app/
 
 ### Functional specs
 
